@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!--配置servlet 配置扫描报-->
+    <servlet>
+        <servlet-name>AnnotationHandleServlet</servlet-name>
+        <servlet-class>com.handler.AnnotationHandleServlet</servlet-class>
+        <init-param>
+            <description>配置要扫描包及其子包, 如果有多个包,以逗号分隔</description>
+            <param-name>basePackage</param-name>
+            <param-value>com.controller</param-value>
+            <!-- <param-value>me.gacl.web.controller</param-value> -->
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AnnotationHandleServlet</servlet-name>
+        <!-- 拦截所有以.do后缀结尾的请求 -->
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
